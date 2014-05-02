@@ -50,15 +50,15 @@
       <label>Strength</label>
       <label>S</label>
       <input type="number" name="attr_Strength" />
-	  <input type="number" disabled="true" value="@{Strength}*2+@{ArmourEquipped}*20" name="attr_StrengthEffective" />    
-	  <input type="number" disabled="true" value="floor((2*@{Strength}+@{ArmourEquipped}*20)/10)" name="attr_StrengthBonus" />
+	  <input type="number" disabled="true" value="(2*@{Strength}+@{ArmourEquipped}*20)" name="attr_StrengthEffective" />    
+	  <input type="number" disabled="true" value="floor(@{StrengthEffective}/10)" name="attr_StrengthBonus" />
     </div>
     <div class="sheet-col-1-9">
       <label>Toughness</label>
       <label>T</label>
       <input type="number" name="attr_Toughness" />
-      <input type="number" disabled="true" name="attr_ToughnessEffective" value="(2*@{Toughness})+(@{ArmourEquipped}*20)" />
-      <input type="number" disabled="true" value="floor((2*@{Toughness}+@{ArmourEquipped}*20)/10)" name="attr_ToughnessBonus" />
+      <input type="number" disabled="true" name="attr_ToughnessEffective" value="(2*@{Toughness}+@{ArmourEquipped}*20)" />
+      <input type="number" disabled="true" value="floor(@{ToughnessEffective})" name="attr_ToughnessBonus" />
     </div>
     <div class="sheet-col-1-9">
       <label>Agility</label>
