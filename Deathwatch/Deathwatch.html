@@ -1,3 +1,4 @@
+<div class="sheet-container">
 <div class="sheet-col-1-1 sheet-header"></div>
 <div class="sheet-col-1-1 sheet-character-data">
   <div class="sheet-col-6-12">
@@ -49,13 +50,15 @@
       <label>Strength</label>
       <label>S</label>
       <input type="number" name="attr_Strength" />
-      <input type="number" disabled="true" value="floor(@{Strength}*2/10)+(@{ArmourEquipped}*2)" name="attr_StrengthBonus" />
+	  <input type="number" disabled="true" value="@{Strength}*2+@{ArmourEquipped}*20" name="attr_StrengthEffective" />    
+	  <input type="number" disabled="true" value="floor((2*@{Strength}+@{ArmourEquipped}*20)/10)" name="attr_StrengthBonus" />
     </div>
     <div class="sheet-col-1-9">
       <label>Toughness</label>
       <label>T</label>
       <input type="number" name="attr_Toughness" />
-      <input type="number" disabled="true" value="floor(@{Toughness}*2/10)+(@{ArmourEquipped}*2)" name="attr_ToughnessBonus" />
+      <input type="number" disabled="true" name="attr_ToughnessEffective" value="(2*@{Toughness})+(@{ArmourEquipped}*20)" />
+      <input type="number" disabled="true" value="floor((2*@{Toughness}+@{ArmourEquipped}*20)/10)" name="attr_ToughnessBonus" />
     </div>
     <div class="sheet-col-1-9">
       <label>Agility</label>
@@ -206,16 +209,16 @@
       <td>
         <button type="roll" value="@{skill-climb}"></button>Climb (S)</td>
       <td>
-        <input type="radio" name="attr_skill-climb" value="/roll [[floor(@{Strength}/2)]]-1d100"></input>
+        <input type="radio" name="attr_skill-climb" value="/roll [[floor(@{StrengthEffective}/2)]]-1d100"></input>
       </td>
       <td>
-        <input type="radio" name="attr_skill-climb" value="/roll [[@{Strength}]]-1d00" checked="true"></input>
+        <input type="radio" name="attr_skill-climb" value="/roll [[@{StrengthEffective}]]-1d00" checked="true"></input>
       </td>
       <td>
-        <input type="radio" name="attr_skill-climb" value="/roll [[@{Strength}+10]]-1d100"></input>
+        <input type="radio" name="attr_skill-climb" value="/roll [[@{StrengthEffective}+10]]-1d100"></input>
       </td>
       <td>
-        <input type="radio" name="attr_skill-climb" value="/roll [[@{Strength}+20]]-1d100"></input>
+        <input type="radio" name="attr_skill-climb" value="/roll [[@{StrengthEffective}+20]]-1d100"></input>
       </td>
     </tr>
     <tr>
@@ -487,16 +490,16 @@
       <td>
         <button type="roll" value="@{skill-intimidate}"></button>Intimidate (S)</td>
       <td>
-        <input type="radio" name="attr_skill-intimidate" value="/roll [[floor(@{Strength}/2)]]-1d100"></input>
+        <input type="radio" name="attr_skill-intimidate" value="/roll [[floor(@{StrengthEffective}/2)]]-1d100"></input>
       </td>
       <td>
-        <input type="radio" name="attr_skill-intimidate" value="/roll [[@{Strength}]]-1d100" checked="true"></input>
+        <input type="radio" name="attr_skill-intimidate" value="/roll [[@{StrengthEffective}]]-1d100" checked="true"></input>
       </td>
       <td>
-        <input type="radio" name="attr_skill-intimidate" value="/roll [[@{Strength}+10]]-1d100"></input>
+        <input type="radio" name="attr_skill-intimidate" value="/roll [[@{StrengthEffective}+10]]-1d100"></input>
       </td>
       <td>
-        <input type="radio" name="attr_skill-intimidate" value="/roll [[@{Strength}+20]]-1d100"></input>
+        <input type="radio" name="attr_skill-intimidate" value="/roll [[@{StrengthEffective}+20]]-1d100"></input>
       </td>
     </tr>
     <tr>
@@ -833,16 +836,16 @@
       <td>
         <button type="roll" value="@{skill-swim}"></button>Swim (S)</td>
       <td>
-        <input type="radio" name="attr_skill-swim" value="/roll [[floor(@{Strength}/2)]]-1d100"></input>
+        <input type="radio" name="attr_skill-swim" value="/roll [[floor(@{StrengthEffective}/2)]]-1d100"></input>
       </td>
       <td>
-        <input type="radio" name="attr_skill-swim" value="/roll [[@{Strength}]]-1d100"></input>
+        <input type="radio" name="attr_skill-swim" value="/roll [[@{StrengthEffective}]]-1d100"></input>
       </td>
       <td>
-        <input type="radio" name="attr_skill-swim" value="/roll [[@{Strength}+10]]-1d100"></input>
+        <input type="radio" name="attr_skill-swim" value="/roll [[@{StrengthEffective}+10]]-1d100"></input>
       </td>
       <td>
-        <input type="radio" name="attr_skill-swim" value="/roll [[@{Strength}+20]]-1d100"></input>
+        <input type="radio" name="attr_skill-swim" value="/roll [[@{StrengthEffective}+20]]-1d100"></input>
       </td>
     </tr>
     <tr>
@@ -927,7 +930,7 @@
     </tr>
   </table>
 </div>
-<div class="sheet-col-1-1 sheet-skills">
+<div class="sheet-col-1-1 sheet-points">
 
   <h2>Wounds</h2>
   Total: <input type="number" name="attr_Wounds_max"></input><br/>
@@ -935,4 +938,6 @@
   Fatigue: <input type="number" name="attr_Fatigue"></input><br/>
   <h2>Insanity</h2>
   Current Points: <input type="number" names="attr_Insanity"></input><br/>
+</div>
+<p>lala</p>
 </div>
